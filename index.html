@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Lawn Care & Grass Guide</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --bg: #f4f6f4;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+        .results {
+            margin-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            padding-top: 20px;
+        }
+        .schedule-card {
+            background: #f9fbf9;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 0 6px 6px 0;
+        }
+        .schedule-card h3 {
+            margin: 0 0 8px 0;
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Australian Lawn Care Advisor 🦘</h1>
+        <p>Get a customized seasonal care schedule for your lawn based on your postcode and grass variety.</p>
+        
+        <form id="lawnForm">
+            <div class="form-group">
+                <label for="postcode">Australian Postcode:</label>
+                <input type="text" id="postcode" placeholder="e.g. 4000, 3000, 2000" maxlength="4" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="grass">Turf Variety:</label>
+                <select id="grass" required>
+                    <option value="buffalo">Sir Walter / Buffalo</option>
+                    <option value="qld_couch">Queensland Blue Couch</option>
+                    <option value="kikuyu">Kikuyu</option>
+                    <option value="couch">Green Couch (Bermudagrass)</option>
+                    <option value="zoysia">Zoysia</option>
+                    <option value="fescue" selected>Tall Fescue / Ryegrass (Cool Climate)</option>
+                </select>
+            </div>
+            
+            <button type="submit">Get Lawn Care Schedule</button>
+        </form>
+
+        <div id="results" class="results" style="display:none;">
+            <h2 id="resultTitle"></h2>
+            <div id="scheduleContainer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
