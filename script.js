@@ -15,12 +15,11 @@ document.getElementById('lawnForm').addEventListener('submit', function(e) {
     const pc = parseInt(postcode, 10);
     let region = 'Warm / Subtropical';
     
-    // Basic Australian climate region estimation by postcode prefix
     if ((pc >= 2000 && pc <= 2599) || (pc >= 2619 && pc <= 2899) || (pc >= 3000 && pc <= 3999) || (pc >= 7000 && pc <= 7999) || (pc >= 5000 && pc <= 5799)) {
         region = 'Temperate / Cool Climate';
     } else if (pc >= 4000 && pc <= 4999) {
         region = 'Subtropical / Tropical (QLD)';
-    } else if (pc >= 0800 && pc <= 0899) {
+    } else if (pc >= 800 && pc <= 899) {
         region = 'Tropical (NT)';
     } else if (pc >= 6000 && pc <= 6799) {
         region = 'Mediterranean / Arid (WA)';
@@ -35,9 +34,8 @@ document.getElementById('lawnForm').addEventListener('submit', function(e) {
         'fescue': 'Tall Fescue / Ryegrass'
     };
 
-    resultTitle.textContent = `Seasonal Schedule: \({grassNames[grassType]} (\){region})`;
+    resultTitle.textContent = 'Seasonal Schedule: ' + grassNames[grassType] + ' (' + region + ')';
     
-    // Seasonal advice data
     const schedules = {
         'fescue': [
             { season: '🌸 Spring (Sep - Nov)', task: 'Primary growth window! Apply balanced fertilizer, top-dress core areas, and overseed thin spots. Keep water consistent as temperatures rise.' },
@@ -56,16 +54,20 @@ document.getElementById('lawnForm').addEventListener('submit', function(e) {
     const selectedSchedule = (grassType === 'fescue') ? schedules['fescue'] : schedules['warm_season_default'];
 
     scheduleContainer.innerHTML = '';
-    selectedSchedule.forEach(item => {
+    selectedSchedule.forEach(function(item) {
         const card = document.createElement('div');
         card.className = 'schedule-card';
-        card.innerHTML = `
-        ' + item.season + '
 
-' + item.task + '
+        const h3 = document.createElement('h3');
+        h3.textContent = item.season;
 
-';
-scheduleContainer.appendChild(card);
-});
-resultsDiv.style.display = 'block';
+        const p = document.createElement('p');
+        p.textContent = item.task;
+
+        card.appendChild(h3);
+        card.appendChild(p);
+        scheduleContainer.appendChild(card);
+    });
+
+    resultsDiv.style.display = 'block';
 });
