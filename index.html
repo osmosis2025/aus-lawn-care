@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australian Lawn Care & Grass Guide</title>
+    <title>Australian Lawn Care & Turfgrass Guide</title>
     <style>
         :root {
             --primary: #2e7d32;
@@ -80,12 +80,19 @@
             margin: 0 0 8px 0;
             color: var(--primary-dark);
         }
+        .schedule-card p {
+            margin: 0 0 8px 0;
+            line-height: 1.5;
+        }
+        .schedule-card p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Australian Lawn Care Advisor 🦘</h1>
-        <p>Get a customized seasonal care schedule for your lawn based on your postcode and grass variety.</p>
+        <p>Get a customised seasonal care schedule for your lawn based on your postcode and turf variety.</p>
         
         <form id="lawnForm">
             <div class="form-group">
@@ -101,7 +108,15 @@
                     <option value="kikuyu">Kikuyu</option>
                     <option value="couch">Green Couch (Bermudagrass)</option>
                     <option value="zoysia">Zoysia</option>
-                    <option value="fescue" selected>Tall Fescue / Ryegrass (Cool Climate)</option>
+                    <option value="fescue">Tall Fescue / Ryegrass (Cool Climate)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="detailLevel">Schedule Detail:</label>
+                <select id="detailLevel" required>
+                    <option value="basic">Basic Schedule (Seasonal Overview)</option>
+                    <option value="detailed">Detailed Schedule (Week-by-Week Plan)</option>
                 </select>
             </div>
             
