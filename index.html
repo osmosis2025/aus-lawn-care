@@ -11,6 +11,7 @@
             --bg: #f4f6f4;
             --card-bg: #ffffff;
             --text: #2c3e50;
+            --subtext: #666666;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -87,6 +88,28 @@
         .schedule-card p:last-child {
             margin-bottom: 0;
         }
+        .sources-footer {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            color: var(--subtext);
+            line-height: 1.4;
+        }
+        .sources-footer h4 {
+            margin: 0 0 6px 0;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .sources-footer ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .sources-footer li {
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 <body>
@@ -104,11 +127,11 @@
                 <label for="grass">Turf Variety:</label>
                 <select id="grass" required>
                     <option value="qld_couch">Queensland Blue Couch</option>
+                    <option value="buffalo">Buffalo / Sir Walter</option>
                     <option value="couch">Green Couch (Bermudagrass)</option>
-                    <option value="buffalo">Sir Walter / Buffalo</option>
                     <option value="kikuyu">Kikuyu</option>                    
-                    <option value="zoysia">Zoysia</option>
                     <option value="fescue">Tall Fescue / Ryegrass (Cool Climate)</option>
+                    <option value="zoysia">Zoysia</option>                    
                 </select>
             </div>
 
@@ -126,6 +149,16 @@
         <div id="results" class="results" style="display:none;">
             <h2 id="resultTitle"></h2>
             <div id="scheduleContainer"></div>
+            
+            <div id="sourcesFooter" class="sources-footer">
+                <h4>Agronomic & Technical Sources</h4>
+                <p style="margin: 0 0 8px 0;">Maintenance guidelines and turf sensitivities synthesized from Australian industry research and technical extension bodies:</p>
+                <ul>
+                    <li><strong>Lawn Solutions Australia (LSA):</strong> Industry benchmarks for Sir Walter Buffalo, TifTuf, and Zoysia seasonal height and fertilisation.</li>
+                    <li><strong>Australian Turfgrass Management Research (ATRI/ASTMA):</strong> Pre-emergent timing and pest management protocols (Armyworm & Lawn Grub).</li>
+                    <li><strong>State Departments of Primary Industries (NSW DPI & QLD DAF):</strong> Agronomic research on soil temperature thresholds, weed cycles, and turf herbicide tolerance limits (e.g. Dicamba exclusions).</li>
+                </ul>
+            </div>
         </div>
     </div>
 
