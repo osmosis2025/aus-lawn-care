@@ -147,12 +147,27 @@ document.getElementById('lawnForm').addEventListener('submit', function(e) {
 
         const p = document.createElement('p');
         p.textContent = item.task;
-        p.style.whiteSpace = 'pre-line'; // <-- Ensures \n line breaks render in browser
+        p.style.whiteSpace = 'pre-line';
 
         card.appendChild(h3);
         card.appendChild(p);
         scheduleContainer.appendChild(card);
     });
+
+    // Update Sources Acknowledgements dynamically based on grass selection
+    const sourcesFooter = document.getElementById('sourcesFooter');
+    if (sourcesFooter) {
+        const sourcesText = sourcesFooter.querySelector('p');
+        if (sourcesText) {
+            if (grassType === 'qld_couch') {
+                sourcesText.innerHTML = 'Maintenance guidelines tailored for *Digitaria didactyla* based on:';
+            } else if (grassType === 'buffalo') {
+                sourcesText.innerHTML = 'Maintenance guidelines tailored for broad-leaf *Stenotaphrum secundatum* based on:';
+            } else {
+                sourcesText.innerHTML = 'Maintenance guidelines and turf sensitivities synthesized from Australian industry research and technical extension bodies:';
+            }
+        }
+    }
 
     resultsDiv.style.display = 'block';
 });
